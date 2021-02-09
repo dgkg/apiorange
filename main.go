@@ -3,19 +3,19 @@ package main
 import "github.com/gin-gonic/gin"
 
 type User struct {
-	UID      int    `json:uid`
-	UserName string `json:user_name`
-	Password string `json:pass`
-	Name     string `json:name`
-	Email    string `json:email`
+	UID      int    `json:"uid"`
+	UserName string `json:"user_name"`
+	Password string `json:"pass"`
+	Name     string `json:"name"`
+	Email    string `json:"email"`
 }
 
 type Product struct {
-	UID         int      `json:uid`
-	Title       string   `json:title`
-	Description string   `json:desc`
-	Reference   int      `json:ref`
-	Images      []string `json:imgs`
+	UID         int      `json:"uid"`
+	Title       string   `json:"title"`
+	Description string   `json:"desc"`
+	Reference   int      `json:"ref"`
+	Images      []string `json:"imgs"`
 }
 
 func main() {
