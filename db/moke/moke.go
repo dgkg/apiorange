@@ -20,13 +20,13 @@ func (m *Moke) CreateUser(u *models.User) error {
 	m.ListUser = append(m.ListUser, u)
 	return nil
 }
-func (m *Moke) GetAllUser() ([]models.User, error) {
+func (m *Moke) GetAllUser() ([]*models.User, error) {
 	return m.ListUser, nil
 }
-func (m *Moke) CreateProduct(p *models.Porduct) error {
-	m.ListProduct = append(m.ListProduct, u)
+func (m *Moke) CreateProduct(p *models.Product) error {
+	m.ListProduct = append(m.ListProduct, p)
 	return nil
 }
-func (m *Moke) GetAllProduct() ([]models.Product, error) {
+func (m *Moke) GetAllProduct() ([]*models.Product, error) {
 	return m.ListProduct, nil
 }
