@@ -3,6 +3,7 @@ package moke
 import (
 	"apiorange/db"
 	"apiorange/models"
+	"apiorange/util"
 )
 
 var _ db.Store = &Moke{}
@@ -17,6 +18,7 @@ type Moke struct {
 }
 
 func (m *Moke) CreateUser(u *models.User) error {
+	u.Password = util.PasswordHashing(u.Password)
 	m.ListUser = append(m.ListUser, u)
 	return nil
 }

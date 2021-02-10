@@ -1,8 +1,8 @@
 package models
 
-import (
-	"encoding/json"
-)
+//import (
+//	"encoding/json"
+//)
 
 type User struct {
 	UID      int    `json:"uid"`
@@ -12,11 +12,13 @@ type User struct {
 	Email    string `json:"email"`
 }
 
+/*
 func (u User) MarshalJSON() ([]byte, error) {
 	aux := struct {
 		UID      int    `json:uid`
 		UserName string `json:user_name`
 		Name     string `json:name`
+		
 		Email    string `json:email`
 	}{
 		UID:      u.UID,
@@ -27,3 +29,4 @@ func (u User) MarshalJSON() ([]byte, error) {
 
 	return json.Marshal(aux)
 }
+*/
