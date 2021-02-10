@@ -76,3 +76,8 @@ func (s *SQLite) GetAllProduct() ([]*models.Product, error) {
 	var ps []*models.Product
 	return ps, s.db.Find(&ps).Error
 }
+
+func (s *SQLite) GetPassByLogin(l string) (user *models.User, err error) {
+	err = s.db.First(user,"user_name=$", l).Error
+	return
+}

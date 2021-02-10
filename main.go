@@ -3,12 +3,12 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 
-	"apiorange/db/sql"
+	"apiorange/db/sqlite"
 	"apiorange/service"
 )
 
 func main() {
-	s := service.New(sql.New(""))
+	s := service.New(sqlite.New("moke2.db"))
 
 	r := gin.Default()
 
@@ -16,6 +16,7 @@ func main() {
 	r.GET("/users", s.ServiceGetAllUser)
 	r.POST("/products", s.ServiceCreateProduct)
 	r.GET("/products", s.ServiceGetAllProduct)
+	r.POST("/login", s.ServiceLogin)
 
 	r.Run(":8081") // listen and serve on 0.0.0.0:8080 (for windows "localhost:8080")
 }
