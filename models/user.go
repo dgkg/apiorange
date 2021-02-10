@@ -1,10 +1,13 @@
 package models
 
-//import (
-//	"encoding/json"
-//)
+import "gorm.io/gorm"
+
+// import (
+// 	"encoding/json"
+// )
 
 type User struct {
+	gorm.Model
 	UID      int    `json:"uid"`
 	UserName string `json:"user_name"`
 	Password string `json:"pass"`
@@ -18,7 +21,7 @@ func (u User) MarshalJSON() ([]byte, error) {
 		UID      int    `json:uid`
 		UserName string `json:user_name`
 		Name     string `json:name`
-		
+
 		Email    string `json:email`
 	}{
 		UID:      u.UID,

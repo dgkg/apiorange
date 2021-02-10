@@ -3,12 +3,12 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 
-	"apiorange/db/sqlite"
+	"apiorange/db/sql"
 	"apiorange/service"
 )
 
 func main() {
-	s := service.New(sqlite.New("moke.db"))
+	s := service.New(sql.New(""))
 
 	r := gin.Default()
 

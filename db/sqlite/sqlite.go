@@ -23,11 +23,39 @@ func New(path string) *SQLite {
 	if err != nil {
 		panic("failed to connect database")
 	}
-	db.AutoMigrate(&models.Product{}, &models.User{})
 
-	return &SQLite{
+	sqlite := &SQLite{
 		db: db,
 	}
+
+	err = sqlite.InitModel()
+	if err != nil {
+		panic("failed to connect database")
+	}
+
+	return sqlite
+}
+
+func (s *SQLite) SetDB(db *gorm.DB) {
+	s.db = db
+}
+
+func (s *SQLite) InitModel() error {
+	err := s.db.AutoMigrate(&models.Product{})
+	if err != nil {
+		return err
+	}
+
+	err = s.db.AutoMigrate(&models.Image{})
+	if err != nil {
+		return err
+	}
+
+	err = s.db.AutoMigrate(&models.User{})
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
 func (s *SQLite) CreateUser(u *models.User) error {
